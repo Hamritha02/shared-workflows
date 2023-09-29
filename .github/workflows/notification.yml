@@ -1,6 +1,13 @@
 # notification.yml
 name: Shared Workflow - Notification
 
+on:
+  workflow_call:
+    inputs:
+      TEAMS_WEBHOOK_URL:
+        description: 'TEAMS_WEBHOOK_URL'
+        required: true
+
 jobs:
   ending-notification:
     runs-on: ubuntu-latest
