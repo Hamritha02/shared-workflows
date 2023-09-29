@@ -17,3 +17,14 @@ jobs:
           curl -X POST -H "Content-Type: application/json" -d '{
             "text": "'"${MESSAGE}"'"
           }' "${TEAMS_WEBHOOK_URL}"
+
+      - name: Set Up Git
+        run: |
+          git config user.name "Hamritha02"
+          git config --global credential.helper store  # Store credentials for future use
+      - name: Create and Push Git Tag
+        run: |
+          git tag -a v1.0.0 -m "Release version 1.0.0"
+          git push origin v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
