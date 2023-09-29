@@ -20,7 +20,8 @@ jobs:
           curl -X POST -H "Content-Type: application/json" -d '{
             "text": "'"${MESSAGE}"'"
           }' "${TEAMS_WEBHOOK_URL}"
-
+      - name: Checkout Repository
+        uses: actions/checkout@v2
       - name: Set Up Git
         run: |
           git config user.name "Hamritha02"
