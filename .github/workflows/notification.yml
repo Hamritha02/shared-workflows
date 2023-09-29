@@ -1,12 +1,9 @@
 name: Shared Workflow 
 on:
- push:
-   branches:
-     main
-  #workflow_run:
-    #workflows: ["Maven-poc"]  # Replace with the name of your main workflow
-    #types:
-    #  - completed
+  workflow_run:
+    workflows: ["Maven-poc"]  # Replace with the name of your main workflow
+    types:
+      - completed
 
 jobs:
   send-notification:
@@ -20,19 +17,5 @@ jobs:
           curl -X POST -H "Content-Type: application/json" -d '{
             "text": "'"${MESSAGE}"'"
           }' "${TEAMS_WEBHOOK_URL}"
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Set Up Git
-        run: |
-          git config user.name "Hamritha02"
-          git config user.email "harithaanand02@gmail.com"
-          git config --global credential.helper store  # Store credentials for future use
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
-      - name: Create and Push Git Tag
-        run: |
-          git tag -a v1.0.0 -m "Release version 1.0.0"
-          git push origin v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      
