@@ -30,12 +30,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
-      - name: Commit and Push Changes
-        run: |
-          git commit -am "Update Git configurations"
-          git push origin HEAD
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       - name: Create and Push Git Tag
         run: |
           git tag -a v1.0.0 -m "Release version 1.0.0"
