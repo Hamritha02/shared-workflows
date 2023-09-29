@@ -1,9 +1,12 @@
 name: Shared Workflow 
 on:
-  workflow_run:
-    workflows: ["Maven-poc"]  # Replace with the name of your main workflow
-    types:
-      - completed
+ push:
+   branches:
+     main
+  #workflow_run:
+    #workflows: ["Maven-poc"]  # Replace with the name of your main workflow
+    #types:
+    #  - completed
 
 jobs:
   send-notification:
