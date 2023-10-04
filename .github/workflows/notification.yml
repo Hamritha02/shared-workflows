@@ -12,6 +12,8 @@ jobs:
   ending-notification:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
       - name: Send Notification to Teams
         env:
           TEAMS_WEBHOOK_URL: ${{ inputs.TEAMS_WEBHOOK_URL }}
