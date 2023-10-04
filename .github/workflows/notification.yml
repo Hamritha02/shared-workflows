@@ -7,7 +7,6 @@ on:
       TEAMS_WEBHOOK_URL:
         description: 'TEAMS_WEBHOOK_URL'
         required: true
-        type: string
 
 jobs:
   ending-notification:
