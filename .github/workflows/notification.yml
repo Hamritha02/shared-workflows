@@ -3,6 +3,11 @@ name: Shared Workflow - Notification
 
 on:
   workflow_call:
+    inputs:
+      message:
+        description: 'The message to send'
+        required: true
+        type: string
     secrets:
       TEAMS_WEBHOOK_URL:
         description: 'TEAMS_WEBHOOK_URL'
