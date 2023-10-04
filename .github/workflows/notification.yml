@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Send Notification to Teams
         env:
-          TEAMS_WEBHOOK_URL: ${{ inputs.TEAMS_WEBHOOK_URL }}
+          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
           MESSAGE="Your workflow has completed successfully!"
           curl -X POST -H "Content-Type: application/json" -d '{
