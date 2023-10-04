@@ -23,7 +23,7 @@ jobs:
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
-          MESSAGE="Your workflow has completed successfully!"
+          MESSAGE="${{ inputs.message }}"
           curl -X POST -H "Content-Type: application/json" -d '{
             "text": "'"${MESSAGE}"'"
           }' "${TEAMS_WEBHOOK_URL}"
